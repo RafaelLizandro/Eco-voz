@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EcoVoz | Plataforma Virtual de Participación Ambiental</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+<nav class="navbar">
+
+    <div class="logo">
+        ♻ EcoVoz
+        <span>Tu mercado, más limpio</span>
+    </div>
+
+    <div class="menu">
+        <button onclick="irASeccion('inicio')">Inicio</button>
+        <button onclick="irASeccion('reportar')">Reportar</button>
+        <button onclick="irASeccion('reportes')">Reportes</button>
+        <button onclick="irASeccion('soluciones')">Soluciones</button>
+        <button onclick="irASeccion('resultados')">Resultados</button>
+    </div>
+
+</nav>
+</header>
+
+<main>
+
+<!-- =========================
+     INICIO
+========================= -->
+
+<section class="hero" id="inicio">
+
+    <h1>
+        Un mercado más limpio empieza contigo.
+    </h1>
+
+    <p>
+        EcoVoz es una plataforma virtual de participación ambiental
+        donde comerciantes, compradores y peatones pueden reportar
+        problemas ambientales, adjuntar fotografías o videos como
+        evidencia, compartir opiniones, proponer soluciones y votar
+        por las propuestas que consideran más útiles.
+    </p>
+
+    <button
+        class="boton"
+        onclick="irASeccion('reportar')">
+        ♻ Reportar un problema
+    </button>
+
+</section>
+
+<!-- =========================
+     ESTADÍSTICAS
+========================= -->
+
+<section class="estadisticas">
+
+    <div class="estadistica">
+        <strong id="totalReportes">0</strong>
+        <span>Reportes registrados</span>
+    </div>
+
+    <div class="estadistica">
+        <strong id="totalPendientes">0</strong>
+        <span>Problemas pendientes</span>
+    </div>
+
+    <div class="estadistica">
+        <strong id="totalSoluciones">0</strong>
+        <span>Propuestas de solución</span>
+    </div>
+
+    <div class="estadistica">
+        <strong id="totalVotos">0</strong>
+        <span>Votos registrados</span>
+    </div>
+
+</section>
+
+<!-- =========================
+     FUNCIONES
+========================= -->
+
+<section class="seccion">
+
+    <h2>Participación de la comunidad</h2>
+
+    <p class="descripcion">
+        EcoVoz permite participar en la identificación y solución
+        de los problemas ambientales del mercado.
+    </p>
+
+    <div class="funciones">
+
+        <div class="funcion">
+            <span class="funcion-icono">📷</span>
+            <strong>Reporta con evidencia</strong>
+            <p>
+                Registra problemas y adjunta una fotografía
+                o video como evidencia.
+            </p>
+        </div>
+
+        <div class="funcion">
+            <span class="funcion-icono">💬</span>
+            <strong>Comparte opiniones</strong>
+            <p>
+                Comenta los problemas registrados por la comunidad.
+            </p>
+        </div>
+
+        <div class="funcion">
+            <span class="funcion-icono">💡</span>
+            <strong>Propón soluciones</strong>
+            <p>
+                Publica ideas para solucionar los problemas ambientales.
+            </p>
+        </div>
+
+        <div class="funcion">
+            <span class="funcion-icono">🗳️</span>
+            <strong>Vota por soluciones</strong>
+            <p>
+                Vota por las propuestas que consideres más útiles.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     FORMULARIO DE REPORTE
+========================= -->
+
+<section class="seccion" id="reportar">
+
+    <h2>♻ Reportar un problema ambiental</h2>
+
+    <p class="descripcion">
+        Registra un problema ambiental observado en el mercado.
+        También puedes adjuntar una fotografía o video como evidencia.
+    </p>
+
+    <div class="panel">
+
+        <form id="formReporte" class="formulario">
+
+            <div class="campo completo">
+
+                <label for="tituloReporte">
+                    Título del reporte *
+                </label>
+
+                <input
+                    id="tituloReporte"
+                    required
+                    maxlength="100"
+                    placeholder="Ej. Acumulación de basura">
+
+            </div>
+
+            <div class="campo">
+
+                <label for="categoriaReporte">
+                    Tipo de problema *
+                </label>
+
+                <select id="categoriaReporte" required>
+
+                    <option value="">
+                        Selecciona una categoría
+                    </option>
+
+                    <option>Acumulación de basura</option>
+                    <option>Falta de tachos</option>
+                    <option>Contaminación del agua</option>
+                    <option>Malos olores</option>
+                    <option>Uso excesivo de plástico</option>
+                    <option>Otro problema</option>
+
+                </select>
+
+            </div>
+
+            <div class="campo">
+
+                <label for="zonaReporte">
+                    Zona del mercado *
+                </label>
+
+                <input
+                    id="zonaReporte"
+                    required
+                    maxlength="100"
+                    placeholder="Ej. Entrada principal">
+
+            </div>
+
+            <div class="campo completo">
+
+                <label for="descripcionReporte">
+                    Descripción del problema *
+                </label>
+
+                <textarea
+                    id="descripcionReporte"
+                    required
+                    maxlength="1000"
+                    placeholder="Explica qué ocurre, dónde sucede y por qué representa un problema ambiental."></textarea>
+
+            </div>
+
+            <!-- FOTO / VIDEO -->
+
+            <div class="campo completo">
+
+                <label for="evidenciaReporte">
+                    📷 Foto o video del problema (opcional)
+                </label>
+
+                <input
+                    id="evidenciaReporte"
+                    type="file"
+                    accept="image/*,video/*">
+
+                <span class="ayuda">
+                    Puedes adjuntar una foto o un video como evidencia.
+                    Para este prototipo, el archivo debe pesar menos de 1 MB.
+                </span>
+
+                <div id="vistaPreviaEvidencia"></div>
+
+            </div>
+
+            <div class="campo completo">
+
+                <label for="nombreReporte">
+                    Nombre (opcional)
+                </label>
+
+                <input
+                    id="nombreReporte"
+                    maxlength="80"
+                    placeholder="Puedes dejarlo vacío para publicar como Anónimo">
+
+            </div>
+
+            <div class="campo completo">
+
+                <button
+                    id="botonEnviarReporte"
+                    class="boton"
+                    type="submit">
+                    Enviar reporte
+                </button>
+
+            </div>
+
+        </form>
+
+        <div
+            id="mensajeReporte"
+            class="mensaje"
+            role="status">
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     REPORTES
+========================= -->
+
+<section class="seccion" id="reportes">
+
+    <h2>Reportes de la comunidad</h2>
+
+    <p class="descripcion">
+        Consulta los problemas ambientales registrados,
+        revisa sus evidencias, estados y comentarios.
+    </p>
+
+    <div class="barra-reportes">
+
+        <input
+            id="buscarReporte"
+            type="search"
+            placeholder="Buscar por título, zona, categoría o código...">
+
+        <select id="filtroEstado">
+
+            <option value="Todos">
+                Todos los estados
+            </option>
+
+            <option value="Pendiente">
+                Pendiente
+            </option>
+
+            <option value="En proceso">
+                En proceso
+            </option>
+
+            <option value="Resuelto">
+                Resuelto
+            </option>
+
+        </select>
+
+    </div>
+
+    <div
+        id="listaReportes"
+        class="lista">
+    </div>
+
+</section>
+
+<!-- =========================
+     SOLUCIONES
+========================= -->
+
+<section class="seccion" id="soluciones">
+
+    <h2>💡 Propuestas de solución</h2>
+
+    <p class="descripcion">
+        Comparte una propuesta para solucionar los problemas
+        ambientales. La comunidad podrá votar por las propuestas.
+    </p>
+
+    <div class="panel">
+
+        <form
+            id="formSolucion"
+            class="formulario">
+
+            <div class="campo completo">
+
+                <label for="tituloSolucion">
+                    Nombre de la propuesta *
+                </label>
+
+                <input
+                    id="tituloSolucion"
+                    required
+                    maxlength="100"
+                    placeholder="Ej. Colocar tachos para separar residuos">
+
+            </div>
+
+            <div class="campo">
+
+                <label for="zonaSolucion">
+                    Lugar donde se aplicaría *
+                </label>
+
+                <input
+                    id="zonaSolucion"
+                    required
+                    maxlength="100"
+                    placeholder="Ej. Pasillos del mercado">
+
+            </div>
+
+            <div class="campo">
+
+                <label for="autorSolucion">
+                    Nombre (opcional)
+                </label>
+
+                <input
+                    id="autorSolucion"
+                    maxlength="80"
+                    placeholder="Tu nombre">
+
+            </div>
+
+            <div class="campo completo">
+
+                <label for="descripcionSolucion">
+                    ¿Cómo ayudaría esta propuesta? *
+                </label>
+
+                <textarea
+                    id="descripcionSolucion"
+                    required
+                    maxlength="1000"
+                    placeholder="Explica cómo se podría realizar y qué beneficio tendría."></textarea>
+
+            </div>
+
+            <div class="campo completo">
+
+                <button
+                    class="boton"
+                    type="submit">
+                    Publicar propuesta
+                </button>
+
+            </div>
+
+        </form>
+
+        <div
+            id="mensajeSolucion"
+            class="mensaje"
+            role="status">
+        </div>
+
+    </div>
+
+    <div
+        id="listaSoluciones"
+        class="lista"
+        style="margin-top:18px;">
+    </div>
+
+</section>
+
+<!-- =========================
+     RESULTADOS
+========================= -->
+
+<section class="seccion" id="resultados">
+
+    <h2>📊 Resultados de las propuestas</h2>
+
+    <p class="descripcion">
+        Observa cuáles son las propuestas que han recibido
+        más votos de la comunidad.
+    </p>
+
+    <div class="panel">
+
+        <div class="explicacion-grafico">
+
+            <strong>Resultados de la votación</strong>
+
+            <br>
+
+            Cada barra representa una propuesta de solución.
+            Los resultados se actualizan cuando se registra un voto.
+
+        </div>
+
+        <div
+            id="graficoVotos"
+            class="grafico">
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+    <strong>♻ EcoVoz</strong>
+    <br>
+    Plataforma Virtual de Participación Ambiental
+    <br>
+    La limpieza del mercado es responsabilidad de todos.
+</footer>
+
+<script src="script.js" defer></script>
+
+</body>
+</html>
